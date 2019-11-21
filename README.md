@@ -38,17 +38,14 @@ var DismissModal = require('js/dismissmodal.js');
 
 ```javascript
 new DismissModal({
-
+	'container': document.querySelector('dl.dm'),
+	'onDissmiss': function() { document.querySelector('dl.dm').className='dm dm-closed'; }
 });
 ```
 
-**element : {DOM node}** - The affected element.
+**container : {DOM node}** - The container around the modal window.
 
-**container : {DOM node}** - The target container that goes with this condition.
-
-**condition : {CSS rule}** - The size interval for this condition.
-
-**before : {DOM node}** - Insert the element before this element in the container.
+**onDissmiss : {Handler}** - What to do when the click is outside the modal window.
 
 ## How to build the script
 
