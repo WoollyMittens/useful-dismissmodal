@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>dismissmodal.js: Close modals by clicking elsewhere</title>
+		<style>
+			html { font-family:Sans-Serif; font-size:75%; height:100%; }
+			body { _height:100%; line-height:180%; margin:0; min-height:100%; padding:1%; }
+			.example { max-width:960px; margin:0 auto; padding:0; clear:both; }
+			.example > article, .example > aside { width:98%; padding:2%; }
+			.example-left > article, .example-left > aside { width:48%; padding:1%; float:left; }
+			.example-right > article, .example-right > aside { width:48%; padding:1%; float:right; }
+		</style>
+	</head>
+	<body>
+		<section class="example example-left">
+			<article>
+				<h2>Dismiss Modals</h2>
+				<p>Close modals by clicking elsewhere.</p>
+				<p><a class="button downloadButton" href="http://github.com/WoollyMittens/useful-dismissmodal" target="_blank">Download (GitHub)</a></p>
+			</article>
+			<aside>
+
+				<!-- Cut below this -->
+				<style>@import url("./css/dismissmodal.css");</style>
+				<dl class="dm dm-opened">
+					<dt><a href="#" onclick="var dl=this.parentNode.parentNode; dl.className=(/opened/.test(dl.className))?'dm dm-closed':'dm dm-opened';">Toggle menu</a></dt>
+					<dd><a href="#lorem">Lorem</a></dd>
+					<dd><a href="#ipsum">Ipsum</a></dd>
+					<dd><a href="#dolor_sit">Dolor Sit</a></dd>
+					<dd><a href="#amet">Amet</a></dd>
+				</dl>
+				<script src="./js/dismissmodal.js"></script>
+				<script>
+					new DismissModal({
+						'container': document.querySelector('dl.dm'),
+						'onDissmiss': function() { document.querySelector('dl.dm').className='dm dm-closed'; }
+					});
+				</script>
+				<!-- Cut above this -->
+
+			</aside>
+		</section>
+	</body>
+</html>
